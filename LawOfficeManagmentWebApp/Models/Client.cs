@@ -4,7 +4,7 @@ namespace LawOfficeManagmentWebApp.Models
 {
     public class Client
     {
-        public int ClientId { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Müvekkilin 11 haneli TC kimlik numarasını girdiğinizden emin olunuz.")]

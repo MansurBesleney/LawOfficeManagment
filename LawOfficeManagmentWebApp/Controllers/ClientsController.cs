@@ -12,15 +12,7 @@ namespace LawOfficeManagmentWebApp.Controllers
 
         public IActionResult Edit(int? id)
         {
-
-            var client = new Client
-            {
-                ClientId = id.HasValue?id.Value:0,
-                ClientTcNumber = "56459584587",
-                ClientName = "Mansur",
-                ClientSurname = "Besleney",
-                ClientGSM = "5387612894"
-            };
+            var client = new Client();
             return View(client);
         }
     }
