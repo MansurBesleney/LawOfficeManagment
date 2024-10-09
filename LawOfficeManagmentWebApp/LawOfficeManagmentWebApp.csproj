@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repostories\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
   </ItemGroup>
 
