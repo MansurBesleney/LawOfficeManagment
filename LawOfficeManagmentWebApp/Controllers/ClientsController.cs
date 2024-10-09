@@ -1,4 +1,5 @@
 ﻿using LawOfficeManagmentWebApp.Models;
+using LawOfficeManagmentWebApp.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LawOfficeManagmentWebApp.Controllers
@@ -10,9 +11,20 @@ namespace LawOfficeManagmentWebApp.Controllers
             return View();
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit()
         {
-            var client = new Client();
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(ClientDto client)
+        {
             return View(client);
         }
     }

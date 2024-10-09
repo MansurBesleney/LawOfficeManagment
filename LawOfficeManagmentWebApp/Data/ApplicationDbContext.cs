@@ -1,4 +1,4 @@
-﻿using LawOfficeManagmentWebApp.Models;
+﻿using LawOfficeManagmentWebApp.Models.Entites;
 using Microsoft.EntityFrameworkCore;
 
 namespace LawOfficeManagmentWebApp.Data

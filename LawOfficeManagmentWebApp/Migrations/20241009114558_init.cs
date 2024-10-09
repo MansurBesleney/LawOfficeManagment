@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LawOfficeManagmentWebApp.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigraiton : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,10 +16,10 @@ namespace LawOfficeManagmentWebApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ClientTcNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    ClientName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ClientSurname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ClientGSM = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    TcNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Gsm = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

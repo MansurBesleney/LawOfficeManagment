@@ -1,26 +1,23 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LawOfficeManagmentWebApp.Models
+namespace LawOfficeManagmentWebApp.Models.Dtos
 {
-    public class Client
+    public class ClientDto
     {
-        public Guid Id { get; set; }
-
         [Required]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Müvekkilin 11 haneli TC kimlik numarasını girdiğinizden emin olunuz.")]
-        public string ClientTcNumber { get; set; } = null!;
+        public string TcNumber { get; set; } = null!;
 
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Müvekkilin adını girdiğinizden emin olunuz.")]
-        public string ClientName { get; set; } = null!;
+        public string Name { get; set; } = null!;
 
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Müvekiilin soyadını girdiğinizden emin olunuz.")]
-        public string ClientSurname { get; set; } = null!;
+        public string LastName { get; set; } = null!;
 
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Müvekkilin telefon numarasını girdiğinizden emin olunuz.")]
-        public string ClientGSM { get; set; } = null!;
-
+        public string Gsm { get; set; } = null!;
     }
 }
