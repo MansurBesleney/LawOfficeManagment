@@ -21,7 +21,7 @@ namespace LawOfficeManagmentWebApp.Repositories
             return await _context.Clients.ToListAsync();
         }
 
-        public async Task<Client?> GetById(int id)
+        public async Task<Client?> GetByIdAsync(int id)
         {
             Client? client = await _context.Clients.FindAsync(id);
 

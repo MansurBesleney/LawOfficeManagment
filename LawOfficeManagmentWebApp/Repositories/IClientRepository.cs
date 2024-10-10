@@ -5,7 +5,7 @@ namespace LawOfficeManagmentWebApp.Repostories
     public interface IClientRepository
     {
         Task<IEnumerable<Client>> GetAllAsync();
-        Task<Client?> GetById(int id);
+        Task<Client?> GetByIdAsync(int id);
         Task CreateAsync(Client client);
     }
 }
