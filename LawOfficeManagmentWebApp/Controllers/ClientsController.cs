@@ -32,9 +32,9 @@ namespace LawOfficeManagmentWebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ClientDto client)
+        public async  Task<IActionResult> Create(ClientDto client)
         {
-            _clientService.CreateClientAsync(client);
+            await _clientService.CreateClientAsync(client);
             return RedirectToAction(nameof(Index));
         }
     }
