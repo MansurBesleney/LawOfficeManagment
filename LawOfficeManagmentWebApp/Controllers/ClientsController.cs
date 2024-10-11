@@ -1,11 +1,20 @@
 ﻿using LawOfficeManagmentWebApp.Models;
 using LawOfficeManagmentWebApp.Models.Dtos;
+using LawOfficeManagmentWebApp.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace LawOfficeManagmentWebApp.Controllers
 {
     public class ClientsController : Controller
     {
+        private readonly IClientService _clientService;
+
+        public ClientsController(IClientService clientService)
+        {
+            _clientService = clientService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -25,7 +34,8 @@ namespace LawOfficeManagmentWebApp.Controllers
         [HttpPost]
         public IActionResult Create(ClientDto client)
         {
-            return View();
+            _clientService.CreateClientAsync(client);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -1,4 +1,7 @@
 using LawOfficeManagmentWebApp.Data;
+using LawOfficeManagmentWebApp.Repositories;
+using LawOfficeManagmentWebApp.Repostories;
+using LawOfficeManagmentWebApp.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +14,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<IClientService, ClientService>();
 var app = builder.Build();
 
 app.UseStaticFiles();
