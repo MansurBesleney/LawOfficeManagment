@@ -25,7 +25,7 @@ namespace LawOfficeManagmentWebApp.Controllers
         [HttpPost]
         public IActionResult Create(ClientDto client)
         {
-            return View(client);
+            return View();
         }
     }
 }
