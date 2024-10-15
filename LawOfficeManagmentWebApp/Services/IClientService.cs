@@ -5,7 +5,7 @@ namespace LawOfficeManagmentWebApp.Services
     public interface IClientService
     {
         Task<IEnumerable<ClientDto>> GetAllClientsAsync();
-        Task<ClientDto> GetClientByIdAsync(int id);
+        Task<ClientDto> GetClientByIdAsync(Guid id);
         Task CreateClientAsync(ClientDto clientDto);
     }
 }

@@ -26,9 +26,10 @@
                         <button type="button" class="btn btn-danger">
                             <i class="bi bi-trash"></i>
                         </button>
-                        <button type="button" class="btn btn-success">
+                        <a class="btn btn-success" asp-controller="clients" asp-action="edit" asp-route-id="@client.Id">
+                            
                             <i class="bi bi-pencil-square"></i>
-                        </button>
+                        </a>
                     </div>
                 </th>
                 <td>@client.TcNumber</td>

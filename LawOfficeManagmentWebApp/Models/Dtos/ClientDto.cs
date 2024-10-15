@@ -4,6 +4,8 @@ namespace LawOfficeManagmentWebApp.Models.Dtos
 {
     public class ClientDto
     {
+
+        public Guid Id { get; set; } = Guid.Empty;
         [Required]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "Müvekkilin 11 haneli TC kimlik numarasını girdiğinizden emin olunuz.")]
         public string TcNumber { get; set; } = null!;

@@ -23,7 +23,7 @@ namespace LawOfficeManagmentWebApp.Services
             return _mapper.Map<IEnumerable<ClientDto>>(clients);
         }
 
-        public async Task<ClientDto> GetClientByIdAsync(int id)
+        public async Task<ClientDto> GetClientByIdAsync(Guid id)
         {
             var client = await _clientRepository.GetByIdAsync(id);
 
