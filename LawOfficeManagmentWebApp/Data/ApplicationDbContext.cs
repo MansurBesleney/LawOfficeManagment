@@ -10,5 +10,14 @@ namespace LawOfficeManagmentWebApp.Data
         }
 
         public DbSet<Client> Clients { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Client>()
+                .HasKey(client => client.Id)
+                .IsClustered(false);
+        }
+
+        
     }
 }

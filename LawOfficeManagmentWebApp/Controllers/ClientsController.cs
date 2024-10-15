@@ -21,10 +21,6 @@ namespace LawOfficeManagmentWebApp.Controllers
 
             return View(clients);
         }
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
 
         public IActionResult Edit()
         {
