@@ -15,10 +15,16 @@ namespace LawOfficeManagmentWebApp.Controllers
             _clientService = clientService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var clients = await _clientService.GetAllClientsAsync();
+
+            return View(clients);
         }
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
         public IActionResult Edit()
         {
