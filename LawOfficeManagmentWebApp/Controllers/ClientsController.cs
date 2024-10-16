@@ -22,10 +22,19 @@ namespace LawOfficeManagmentWebApp.Controllers
             return View(clients);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Edit(Guid id)
         {
             var client = await _clientService.GetClientByIdAsync(id);
             return View(client);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(ClientDto client)
+        {
+            await _clientService.UpdateClientAsync(client);  // Update the client
+
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]

@@ -41,5 +41,14 @@ namespace LawOfficeManagmentWebApp.Repositories
 
             await _context.SaveChangesAsync();
         }
+
+        public async Task UpdateAsync(Client client)
+        {
+            var clientId = client.Id;
+
+            _context.Clients.Update(client);
+
+            await _context.SaveChangesAsync();
+        }
     }
 }

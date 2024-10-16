@@ -36,5 +36,12 @@ namespace LawOfficeManagmentWebApp.Services
 
             await _clientRepository.CreateAsync(client);
         }
+
+        public async Task UpdateClientAsync(ClientDto clientDto)
+        {
+            var client = _mapper.Map<Client>(clientDto);
+
+            await _clientRepository.UpdateAsync(client);
+        }
     }
 }
