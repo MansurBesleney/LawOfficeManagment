@@ -62,7 +62,7 @@ namespace LawOfficeManagmentWebApp.Repositories
             else
             {
                 _context.Clients.Remove(client);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
            
         }
