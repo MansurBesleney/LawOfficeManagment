@@ -32,9 +32,14 @@ namespace LawOfficeManagmentWebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(ClientDto client)
         {
-            await _clientService.UpdateClientAsync(client);  // Update the client
+            if (ModelState.IsValid)
+            {
+                await _clientService.UpdateClientAsync(client);  // Update the client
+                return RedirectToAction(nameof(Index));
+            }
+            
+            return View(client);
 
-            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
@@ -47,6 +52,13 @@ namespace LawOfficeManagmentWebApp.Controllers
         public async  Task<IActionResult> Create(ClientDto client)
         {
             await _clientService.CreateClientAsync(client);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _clientService.DeleteClientAsync(id);
+
             return RedirectToAction(nameof(Index));
         }
     }

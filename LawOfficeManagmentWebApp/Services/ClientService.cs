@@ -43,5 +43,10 @@ namespace LawOfficeManagmentWebApp.Services
 
             await _clientRepository.UpdateAsync(client);
         }
+
+        public async Task DeleteClientAsync(Guid id)
+        {
+           await _clientRepository.DeleteAsync(id);
+        }
     }
 }

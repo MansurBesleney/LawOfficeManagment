@@ -7,7 +7,7 @@ namespace LawOfficeManagmentWebApp.Services
         Task<IEnumerable<ClientDto>> GetAllClientsAsync();
         Task<ClientDto> GetClientByIdAsync(Guid id);
         Task CreateClientAsync(ClientDto clientDto);
-
         Task UpdateClientAsync(ClientDto clientDto);
+        Task DeleteClientAsync(Guid id);
     }
 }

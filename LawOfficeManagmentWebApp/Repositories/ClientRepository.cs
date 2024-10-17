@@ -50,5 +50,21 @@ namespace LawOfficeManagmentWebApp.Repositories
 
             await _context.SaveChangesAsync();
         }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            var client = await _context.Clients.FirstOrDefaultAsync(client => client.Id == id);
+
+            if (client == null)
+            {
+                throw new KeyNotFoundException($"Client with ID {id} not found.");
+            }
+            else
+            {
+                _context.Clients.Remove(client);
+                _context.SaveChanges();
+            }
+           
+        }
     }
 }
