@@ -14,5 +14,7 @@ namespace LawOfficeManagmentWebApp.Models.Entites
 
         public string Gsm { get; set; } = null!;
 
+        public ICollection<Lawyer> Lawyers { get; set; } = null!;
+
     }
 }
