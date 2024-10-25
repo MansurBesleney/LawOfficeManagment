@@ -1,8 +1,6 @@
 ﻿using LawOfficeManagmentWebApp.Data;
 using LawOfficeManagmentWebApp.Models.Entites;
 using LawOfficeManagmentWebApp.Repostories;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace LawOfficeManagmentWebApp.Repositories
@@ -23,7 +21,7 @@ namespace LawOfficeManagmentWebApp.Repositories
 
         public async Task<Client?> GetByIdAsync(Guid id)
         {
-            Client? client = await _context.Clients.FindAsync(id);
+             var client = await _context.Clients.FindAsync(id);
 
             if (client == null)
             {
