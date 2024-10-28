@@ -9,6 +9,7 @@ namespace LawOfficeManagmentWebApp.Mappings
         public MappingProfile()
         {
             CreateMap<Client, ClientDto>().ReverseMap();
+            CreateMap<Lawyer, LawyerDto>().ReverseMap();
         }
     }
 }
