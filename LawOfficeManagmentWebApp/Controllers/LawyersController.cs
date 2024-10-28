@@ -9,4 +9,9 @@ public class LawyersController : Controller
     {
         return View();
     }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
 }
