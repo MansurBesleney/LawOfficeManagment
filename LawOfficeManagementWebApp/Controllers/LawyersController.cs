@@ -23,8 +23,11 @@ public class LawyersController : Controller
     }
 
     [HttpGet]
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
+        var clients = await _clientService.GetAllClientsAsync();
+        
+        ViewBag.Clients = clients;
         return View();
     }
 }
