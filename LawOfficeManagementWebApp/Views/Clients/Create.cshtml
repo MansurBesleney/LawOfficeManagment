@@ -1,0 +1,34 @@
+﻿@model ClientDto
+
+
+@section title {
+    <h1>Add Client</h1>
+}
+
+<form method="post">
+    <div class="form-group mt-3">
+        <label class="col-form-label-lg">TC Kimlik Numarası</label>
+        <input asp-for="TcNumber" class="form-control" />
+        <span asp-validation-for="TcNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label class="col-form-label-lg">İsim</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mt-3">
+        <label class="col-form-label-lg">Soyisim</label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group mt-3">
+        <label class="col-form-label-lg">Telefon Numarası</label>
+        <input asp-for="Gsm" class="form-control" />
+        <span asp-validation-for="Gsm" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Add Client</button>
+</form>
