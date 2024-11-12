@@ -30,10 +30,42 @@
         <input asp-for="Gsm" class="form-control" />
         <span asp-validation-for="Gsm" class="text-danger"></span>
     </div>
+
+    @if (Model.Lawyers.Count > 0)
+    {
+        <div>
+            <label class="col-form-label-lg">Clients</label>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="table">
+                    <tr>
+                        <th scope="col">Registration Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">GSM</th>
+                        <th scope="col">EMail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var lawyer in Model.Lawyers)
+                    {
+                        <tr>
+                            <td>@lawyer.RegistrationNumber</td>
+                            <td>@lawyer.Name</td>
+                            <td>@lawyer.LastName</td>
+                            <td>@lawyer.Gsm</td>
+                            <td>@lawyer.Email</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
     <div>
         <button type="submit" class="btn btn-success mt-3">Update Client</button>
         <a class="btn btn-danger mt-3" asp-controller="clients" asp-action="index">Cancel</a>
     </div>
-    
 </form>
+
+
 

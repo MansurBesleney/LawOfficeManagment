@@ -21,5 +21,7 @@ namespace LawOfficeManagementWebApp.Models.Dtos
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Müvekkilin telefon numarasını girdiğinizden emin olunuz.")]
         public string Gsm { get; set; } = null!;
+
+        public List<LawyerDto> Lawyers { get; set; } = null!;
     }
 }

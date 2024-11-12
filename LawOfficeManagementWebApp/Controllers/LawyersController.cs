@@ -20,7 +20,6 @@ public class LawyersController : Controller
     public async Task<IActionResult> Index()
     {
         var lawyers = await _lawyerService.GetAllLawyersAsync();
-
         return View(lawyers);
     }
 

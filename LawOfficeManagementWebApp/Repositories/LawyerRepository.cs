@@ -15,12 +15,16 @@ namespace LawOfficeManagementWebApp.Repositories
 
         public async Task<IEnumerable<Lawyer>> GetAllAsync()
         {
-            return await _context.Lawyers.ToListAsync();
+            return await _context.Lawyers
+                    .Include(c => c.Clients)
+                    .ToListAsync();
         }
 
         public async Task<Lawyer?> GetByIdAsync(Guid id)
         {
-            var lawyer = await _context.Lawyers.FindAsync(id);
+            var lawyer = await _context.Lawyers
+                            .Include(c => c.Clients)
+                            .FirstOrDefaultAsync(c => c.Id == id);
 
             if(lawyer == null)
             {
