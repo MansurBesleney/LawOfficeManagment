@@ -1,9 +1,45 @@
-
+@model IEnumerable<LawyerDto>
 @section title{
     <h1>
         Lawyers
     </h1>
 }
+
+<table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Registiration Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gsm</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var lawyer in Model)
+        {
+            <tr>
+                <th scope="row">
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-danger" asp-controller="lawyers" asp-action="delete" asp-route-id="@lawyer.Id" onclick="return confirmDelete()">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                        <a class="btn btn-success" asp-controller="lawysers" asp-action="edit" asp-route-id="@lawyer.Id">
+
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </div>
+                </th>
+                <td>@lawyer.RegistrationNumber</td>
+                <td>@lawyer.Name</td>
+                <td>@lawyer.LastName</td>
+                <td>@lawyer.Email</td>
+                <td>@lawyer.Gsm</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 <a class="btn btn-lg btn-primary" role="button" asp-controller="lawyers" asp-action="create">Add Lawyer</a>
 

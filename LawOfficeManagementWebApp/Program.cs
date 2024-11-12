@@ -16,6 +16,10 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IClientService, ClientService>();
+
+builder.Services.AddScoped<ILawyerRepository, LawyerRepository>();
+builder.Services.AddScoped<ILawyerService, LawyerService>();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())

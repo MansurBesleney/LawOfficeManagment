@@ -8,26 +8,33 @@ namespace LawOfficeManagementWebApp.Controllers;
 
 public class LawyersController : Controller
 {
-    private readonly IClientService _clientService;
+    private readonly ILawyerService _lawyerService;
 
-    public LawyersController(IClientService clientService)
+    public LawyersController(ILawyerService lawyerService)
     {
-        _clientService = clientService;
+        _lawyerService = lawyerService;
     }
 
 
     // GET
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var lawyers = await _lawyerService.GetAllLawyersAsync();
+
+        return View(lawyers);
     }
 
     [HttpGet]
     public async Task<IActionResult> Create()
     {
-        var clients = await _clientService.GetAllClientsAsync();
-        
-        ViewBag.Clients = clients;
         return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(LawyerDto lawyer)
+    {
+        await _lawyerService.CreateLawyerAsync(lawyer);
+
+        return RedirectToAction(nameof(Index));
     }
 }
