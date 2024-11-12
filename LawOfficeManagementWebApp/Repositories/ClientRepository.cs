@@ -35,7 +35,7 @@ namespace LawOfficeManagementWebApp.Repositories
         public async Task CreateAsync(Client client)
         {
             client.Id = Guid.NewGuid();
-            _context.Clients.Add(client);
+            await _context.Clients.AddAsync(client);
 
             await _context.SaveChangesAsync();
         }

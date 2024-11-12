@@ -44,65 +44,12 @@
         <input type="number" asp-for="Gsm" class="form-control"/>
         <span asp-validation-for="Gsm" class="text-danger"></span>
     </div>
-    <div class="form-group mt-3">
-        <label for="clientDropdown" class="control-label">Select Client:</label>
-        <div class="input-group">
-            <select id="clientDropdown" class="form-control">
-                <option value="" disabled selected>Select a client</option>
-                @foreach (var client in ViewBag.Clients as List<ClientDto>)
-                {
-                <option value="@client.Id">@client.TcNumber - @client.Name.ToUpper() @client.LastName.ToUpper()</option>
-                }
-            </select>
-            <div class="input-group-append">
-                <button type="button" id="addClient" class="btn btn-primary">Add Client</button>
-            </div>
-        </div>
-        <span class="text-danger" id="clientError" style="display:none;">Please select a client.</span>
-
-    </div>
-
-    <ul id="selectedClients"></ul>
     
     <button type="submit" class="btn btn-primary mt-3">Add Lawyer</button>
 </form>
 
 @section Scripts {
     <script>
-        document.getElementById('addClient').addEventListener('click', function () {
-            var clientDropdown = document.getElementById('clientDropdown');
-            var selectedClientId = clientDropdown.value;
-            var selectedClientText = clientDropdown.options[clientDropdown.selectedIndex].text;
 
-            if (selectedClientId) {
-                // Clear error message
-                document.getElementById('clientError').style.display = 'none';
-
-                // Check if the client is already in the list
-                var existingClients = document.querySelectorAll('#selectedClients li');
-                for (var i = 0; i < existingClients.length; i++) {
-                    if (existingClients[i].getAttribute('data-client-id') === selectedClientId) {
-                        alert('This client has already been added.');
-                        return; // Exit the function if the client is a duplicate
-                    }
-                }
-
-                var li = document.createElement('li');
-                li.textContent = selectedClientText;
-                li.setAttribute('data-client-id', selectedClientId);
-                li.className = "list-group-item d-flex justify-content-between align-items-center";
-                document.getElementById('selectedClients').appendChild(li);
-
-                // Add selected client ID to a hidden input
-                var input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = "SelectedClientIds"; // Match the property in the DTO
-                input.value = selectedClientId;
-                document.forms[0].appendChild(input);
-            } else {
-                // Show error message if no client is selected
-                document.getElementById('clientError').style.display = 'block';
-            }
-        });
     </script>
 }
